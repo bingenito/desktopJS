@@ -20,7 +20,7 @@ steps:
 - task: PublishTestResults@2
   inputs:
     testRunner: JUnit
-    testResultsFile: '$(System.DefaultWorkingDirectory)/**/junitresults.xml'
+    testResultsFiles: '$(System.DefaultWorkingDirectory)/**/junitresults.xml'
 
 - task: PublishCodeCoverageResults@1
   inputs: 
