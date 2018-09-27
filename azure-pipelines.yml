@@ -17,9 +17,13 @@ steps:
     npm run build
   displayName: 'npm install and build'
 
+- task: PublishTestResults@2
+  inputs:
+    testRunner: JUnit
+    testResultsFile: '$(System.DefaultWorkingDirectory)/**/junitresults.xml'
+
 - task: PublishCodeCoverageResults@1
   inputs: 
     codeCoverageTool: Cobertura
     summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/*coverage.xml'
     reportDirectory: '$(System.DefaultWorkingDirectory)/**/coverage'
-  displayName: 'publish coverage results'

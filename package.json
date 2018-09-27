@@ -49,6 +49,7 @@
     "gulp-typescript": "^4.0.1",
     "gulp-uglify": "^3.0.0",
     "gulp-webserver": "^0.9.1",
+    "jasmine-reporters": "^2.3.2",
     "merge2": "^1.0.3",
     "remap-istanbul": "^0.12.0",
     "rollup": "^0.59.1",

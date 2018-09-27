@@ -8,6 +8,7 @@ var gulp = require('gulp'),
     clean = require('gulp-clean'),
     gulpts = require('gulp-typescript'),
     jasmine = require('gulp-jasmine'),
+    reporters = require('jasmine-reporters'),
     istanbul = require('gulp-istanbul'),
     webserver = require('gulp-webserver'),
     replace = require('gulp-replace'),
@@ -109,7 +110,16 @@ gulp.task('test', ['build:staging'], function () {
         .pipe(istanbul.hookRequire())
         .on('finish', function () {
             gulp.src(['build/tests/**/*.js', 'build/tests/**/*.spec.js'])
-                .pipe(jasmine({ verbose: true, errorOnFail: true, includeStackTrace: false }))
+                .pipe(jasmine(
+                    {
+                        verbose: true,
+                        errorOnFail: true,
+                        includeStackTrace: false,
+                        reporter: [
+                            new reporters.JUnitXmlReporter({ savePath: stagingOutput }),
+                            new reporters.TerminalReporter({ verbosity: 3, color: true, showStack: true })
+                        ]
+                     }))
                 .pipe(istanbul.writeReports({
                     dir: coverageOutput,
                     reporters: ['json', 'cobertura']
