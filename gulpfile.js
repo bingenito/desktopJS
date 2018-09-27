@@ -112,7 +112,7 @@ gulp.task('test', ['build:staging'], function () {
                 .pipe(jasmine({ verbose: true, errorOnFail: true, includeStackTrace: false }))
                 .pipe(istanbul.writeReports({
                     dir: coverageOutput,
-                    reporters: ['json']
+                    reporters: ['json', 'cobertura']
                 }))
                 .on('end', remapCoverageFiles)
                 .on('finish', function () {
@@ -183,6 +183,7 @@ function remapCoverageFiles() {
                 'json': coverageFile, // overwrite js based json with ts remapped version
                 'html': coverageOutput,
                 'lcovonly': lcovFile,
+                'cobertura': coverageOutput + '/cobertura-coverage.xml',
                 'text': null
             }
         }));
