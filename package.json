@@ -59,9 +59,7 @@
   },
   "workspaces": [
     "packages/desktopjs",
-    "packages/desktopjs-electron",
-    "packages/desktopjs-openfin",
-    "examples/electron"
+    "packages/desktopjs-openfin"
   ],
   "optionalDependencies": {
     "@rollup/rollup-linux-x64-gnu": "^4.41.1"

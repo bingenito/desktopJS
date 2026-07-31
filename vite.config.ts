@@ -14,14 +14,7 @@ export default defineConfig({
       formats: ['umd'],
       fileName: (format, entryName) => `${entryName}.${format}.js`,
     },
-    rollupOptions: {
-      external: ['electron'],
-      output: {
-        globals: {
-          electron: 'electron',
-        },
-      },
-    },
+    rollupOptions: {},
   },
   test: {
     coverage: {
