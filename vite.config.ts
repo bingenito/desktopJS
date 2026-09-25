@@ -13,8 +13,7 @@ export default defineConfig({
       entry: resolve(__dirname, 'packages/desktopjs/src/desktop.ts'),
       formats: ['umd'],
       fileName: (format, entryName) => `${entryName}.${format}.js`,
-    },
-    rollupOptions: {},
+    }
   },
   test: {
     coverage: {
